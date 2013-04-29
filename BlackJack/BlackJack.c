@@ -2,14 +2,14 @@
 /*
 - BlackJackルール
     - ホールカードあり。ディーラーは配られた2枚のカードの1枚目を
-	  表向きにし、2枚目はショーダウンまで伏せる
-	- Aのスコアは11としても1としてもよい
-	- ディーラーはスコアが17以上になるまでカードを引き続け、17以上
-	  になったら追加カードは引けず、スコアを確定する
-	- スプリットあり。プレイヤーは最初に配られたカードが同じ数字
-	  だった場合、2つのハンドとしてそれぞれ勝負できる
+      表向きにし、2枚目はショーダウンまで伏せる
+    - Aのスコアは11としても1としてもよい
+    - ディーラーはスコアが17以上になるまでカードを引き続け、17以上
+      になったら追加カードは引けず、スコアを確定する
+    - スプリットあり。プレイヤーは最初に配られたカードが同じ数字
+      だった場合、2つのハンドとしてそれぞれ勝負できる
     - スプリットできるのは1回だけ
-	- Aをスプリットした場合、それぞれのハンドで引けるカードは1枚だけ
+    - Aをスプリットした場合、それぞれのハンドで引けるカードは1枚だけ
 */
 
 // コメントはずすとデバッグモード。配られるカードを指定できる
@@ -58,13 +58,13 @@ static struct CardDeck s_cardDeck;
 
 int drawCard_d()
 {
-	int drawCard = INVALID_CARD_ID;
-	printAvailableCardInfo(&s_cardDeck);
+    int drawCard = INVALID_CARD_ID;
+    printAvailableCardInfo(&s_cardDeck);
     printf("[DEBUG] Input Card ID manualy\n");
-	while(drawCard == INVALID_CARD_ID) {
-		drawCard = getUserInputNum("[DEBUG] Input card ID", 0, 51);
-		drawCard = serveSpecificCard(&s_cardDeck, drawCard);
-	}
+    while(drawCard == INVALID_CARD_ID) {
+        drawCard = getUserInputNum("[DEBUG] Input card ID", 0, 51);
+        drawCard = serveSpecificCard(&s_cardDeck, drawCard);
+    }
     printf("[DEBUG] Serve ");
     printCardInfo(drawCard, 0);
     printf("\n\n");
@@ -103,10 +103,10 @@ enum SlotID getCurrentSlotID(struct Player* player)
 
 void showPlayersCard(const struct Player* player)
 {
-	int indent = 0;
+    int indent = 0;
     int i;
 
-	player->isDealer ? printf("Dealer's card") : printf("Your card ");
+    player->isDealer ? printf("Dealer's card") : printf("Your card ");
     if(player->isSplit) printf("(Splited)");
     printf("\n");
 

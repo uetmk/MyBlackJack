@@ -91,7 +91,6 @@ int countSameNumberCard(const struct CardSlot* slot, int targetCardNum)
 
 void calcScoreState(struct CardSlot* slot, int isDealer, int isSplit)
 {
-
     int sum = 0;
     int i;
     int aceNum;
