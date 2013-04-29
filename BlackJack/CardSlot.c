@@ -94,7 +94,7 @@ void calcScoreState(struct CardSlot* slot, int isDealer, int isSplit)
 
     int sum = 0;
     int i;
-	int aceNum;
+    int aceNum;
 
     for(i = 0; i < MAX_PLAYER_CARD_NUM; i++) {
         sum += getScoreOfCard(slot->cards[i]);

@@ -13,7 +13,7 @@
 */
 
 // コメントはずすとデバッグモード。配られるカードを指定できる
-//#define BJDEBUG (1)
+// #define BJDEBUG (1)
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -220,7 +220,7 @@ void printPlayResult(struct Player* player, struct Player* dealer)
     struct CardSlot* dealerSlot = getCurrentSlot(dealer);
 
     const char* scorePrefix = player->isSplit ? "    [Slot1] Score: " : "    Score: ";
-	enum PlayResult result;
+    enum PlayResult result;
 
     printf("Dealer\n");
     printSlotScore(dealerSlot, "    Score: ", TRUE, TRUE);
@@ -257,14 +257,14 @@ int isStand(const struct Player* player)
 void onGameEnd()
 {
     srand((unsigned int)time(NULL));
-	if(!(rand() % 6)) printEndAnimation();
+    if(!(rand() % 6)) printEndAnimation();
 }
 
 void playBlackJack(struct Player* player, struct Player* dealer)
 {
-	int i;
+    int i;
 
-	printFramedText("Game start");
+    printFramedText("Game start");
     printf("\n");
 
     initPlayer(player, FALSE);
@@ -318,7 +318,7 @@ void playBlackJack(struct Player* player, struct Player* dealer)
     showCards(player, dealer);
     printPlayResult(player, dealer);
 
-	onGameEnd();
+    onGameEnd();
 }
 
 int main(void)

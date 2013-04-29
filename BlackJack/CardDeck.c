@@ -17,8 +17,8 @@ const int NormalCardNum = 52;
 
 void shuffleCards(struct CardDeck* cardDeck)
 {
-	int i = 0;
-	int swapCount = 100;
+    int i = 0;
+    int swapCount = 100;
 
     cardDeck->index = 0;
     for(i = 0; i < MAX_CARD_NUM; i++) {
@@ -46,19 +46,19 @@ int serveCard(struct CardDeck* cardDeck)
 int serveSpecificCard(struct CardDeck* cardDeck, int card_id)
 {
     int card = INVALID_CARD_ID;
-	int i;
+    int i;
 
-	if(!isUsedCard(cardDeck, card_id)) {
-		for(i = cardDeck->index; i < MAX_CARD_NUM; i++)
-			if(cardDeck->cards[i] == card_id) break;
-		CARD_SWAP(&cardDeck->cards[i], &cardDeck->cards[cardDeck->index]);
-		cardDeck->index++;
-		card = card_id;
-	} else {
-		printf("Error: Card ID %d is already used.\n", card_id);
-	}
+    if(!isUsedCard(cardDeck, card_id)) {
+        for(i = cardDeck->index; i < MAX_CARD_NUM; i++)
+            if(cardDeck->cards[i] == card_id) break;
+        CARD_SWAP(&cardDeck->cards[i], &cardDeck->cards[cardDeck->index]);
+        cardDeck->index++;
+        card = card_id;
+    } else {
+        printf("Error: Card ID %d is already used.\n", card_id);
+    }
 
-	return card;
+    return card;
 }
 
 int getCardType(int card_id)
@@ -89,18 +89,18 @@ void getCardInfoStr(int card_id, char* str)
 
 int getUsedCardNum(const struct CardDeck* cardDeck)
 {
-	return cardDeck->index;
+    return cardDeck->index;
 }
 
 int isUsedCard(const struct CardDeck* cardDeck, int card_id)
 {
-	int isUsed = FALSE;
-	int i;
+    int isUsed = FALSE;
+    int i;
 
-	for(i = 0; i < cardDeck->index; i++)
-		if(cardDeck->cards[i] == card_id) isUsed = TRUE;
+    for(i = 0; i < cardDeck->index; i++)
+        if(cardDeck->cards[i] == card_id) isUsed = TRUE;
 
-	return isUsed;
+    return isUsed;
 }
 
 void printCardInfo(int card_id, int indent)
@@ -115,23 +115,21 @@ void printCardInfo(int card_id, int indent)
 
 void printAvailableCardInfo(const struct CardDeck* cardDeck)
 {
-	int i, j, cardNum;
+    int i, j, cardNum;
 
-	printf("\n");
-	for(i = 0; i < 4; i++) printf("%-12s", CardTypeStr[i]);
-	printf("\n");
+    printf("\n");
+    for(i = 0; i < 4; i++) printf("%-12s", CardTypeStr[i]);
+    printf("\n");
 
     for(i = 0; i < MAX_CARD_NUM / 4; i++) {
-		for(j = i; j < MAX_CARD_NUM; j+=13)
-		{
-			cardNum = getCardNumber(j);
-			if(!isUsedCard(cardDeck, j))
-				printf("%2d: [%2s]    ", j, CardNumStr[cardNum]);
-			else
-				printf("%12s", " ");
-		}
-		printf("\n");
+        for(j = i; j < MAX_CARD_NUM; j+=13) {
+            cardNum = getCardNumber(j);
+            if(!isUsedCard(cardDeck, j))
+                printf("%2d: [%2s]    ", j, CardNumStr[cardNum]);
+            else
+                printf("%12s", " ");
+        }
+        printf("\n");
     }
     printf("\n");
 }
-

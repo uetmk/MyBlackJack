@@ -58,18 +58,18 @@ void printFramedText(const char* message)
 void printEndAnimation()
 {
 #if defined(WIN32)
-	int i, j;
+    int i, j;
 
-	for(i = 0; i < 16; i++ ) {
-		for(j = 0; j < i; j++) printf(" ");
-		printf("„¡(„¡ ^o^)„¢");
-		Sleep(60);
-		printf("\r");
-	}
+    for(i = 0; i < 16; i++ ) {
+        for(j = 0; j < i; j++) printf(" ");
+        printf("„¡(„¡ ^o^)„¢");
+        Sleep(60);
+        printf("\r");
+    }
     for(j = 0; j < i; j++) printf(" ");
     printf("„¡(„¡ ^o^)„¢ƒzƒ‚ƒH");
-	Sleep(800);
+    Sleep(800);
     printf("\r");
-	printf("                                        \n");
+    printf("                                        \n");
 #endif
 }
