@@ -32,6 +32,8 @@ int getCardNumber(int card_id);
 
 int getUsedCardNum(const struct CardDeck* cardDeck);
 
+int isUsedCard(const struct CardDeck* cardDeck, int card_id);
+
 void printCardInfo(int card_id, int indent);
 
 void printAvailableCardInfo(const struct CardDeck* cardDeck);
