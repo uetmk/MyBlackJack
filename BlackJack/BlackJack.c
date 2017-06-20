@@ -321,6 +321,7 @@ void playBlackJack(struct Player* player, struct Player* dealer)
     onGameEnd();
 }
 
+// main
 int main(void)
 {
     struct Player player;
